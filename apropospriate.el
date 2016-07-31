@@ -79,7 +79,7 @@
           (light-emphasis-1 (if (eq variant 'light) base00+2 base00-2))
           (light-emphasis-2 (if (eq variant 'light) base00+1 base00-1))
           (flashing-color (if (eq variant 'light) pink (color-darken-name pink 25)))
-          (highlight-line-color (if (eq variant 'light) base00-1 base00+1)))
+          (highlight-line-color (if (eq variant 'light) base00-2 base00-2)))
      ,@body))
 
 (defun create-apropospriate-theme (variant theme-name)
@@ -87,11 +87,11 @@
   (apropospriate-with-color-variables variant
     (custom-theme-set-faces
      theme-name
-     `(default ((,class (:background ,base00 :foreground ,base03))))
+     `(default ((,class (:background ,base00-3 :foreground ,base03))))
      `(bold ((,class (:weight bold))))
      `(border ((,class (:background ,base02))))
      `(cursor ((,class (:background ,pink-1 :inverse-video t))))
-     `(highlight ((,class (:background ,base00+1))))
+     `(highlight ((,class (:background ,base00-2))))
      `(hl-line ((,class (:background ,highlight-line-color))))
      `(link ((,class (:foreground ,blue :underline t))))
      `(link-visited ((,class (:inherit link :foreground ,purple))))
@@ -103,7 +103,7 @@
      `(secondary-selection ((,class (:background ,base00-1))))
      `(header-line ((,class (:foreground ,purple :background nil))))
      `(auto-dim-other-buffers-face ((,class (:background ,base00+1))))
-     `(fringe ((,class (:background ,base00+1 :foreground ,base02))))
+     `(fringe ((,class (:background ,base00-2 :foreground ,base02))))
      `(linum ((,class (:inherit fringe :foreground ,base01))))
      `(vertical-border ((,class (:foreground ,base00+3))))
      `(widget-button ((,class (:underline t))))
@@ -137,8 +137,8 @@
      `(font-lock-type-face ((,class (:foreground ,orange))))
      `(font-lock-variable-name-face ((,class (:foreground ,teal))))
      `(font-lock-warning-face ((,class (:foreground ,red))))
-     `(mode-line ((,class (:box (:line-width 4 :color ,light-emphasis :style nil) :background ,base00-2 :foreground ,base03 :height 0.95))))
-     `(mode-line-inactive ((,class (:box (:line-width 4 :color ,base00+1 :style nil) :background ,base00+1 :foreground ,base02 :height 0.95))))
+     `(mode-line ((,class (:box (:line-width 8 :color ,base00-2 :style unspecified) :background ,base00-2 :foreground ,base03))))
+     `(mode-line-inactive ((,class (:box (:line-width 8 :color ,base00+1 :style unspecified) :background ,base00+1 :foreground ,base02))))
      `(mode-line-buffer-id ((,class (:foreground unspecified :background nil))))
      `(mode-line-emphasis ((,class (:foreground ,base02 :slant italic))))
      `(mode-line-highlight ((,class (:foreground ,base02 :box nil))))
